@@ -1,4 +1,4 @@
-import React from 'react'
+
 import NavBar from './navBar'
 import { folderIcon } from '../../assets'
 import styles from "./style.module.css"

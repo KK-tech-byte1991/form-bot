@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from "./styles.module.css"
 import { backArrow, loginEclipseBottom, loginEclipseRight, loginGroup } from '../../assets'
 import { Link } from 'react-router-dom'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 import styles from "./style.module.css"
 import { bannerThreeFirstImage, bannerThreeSecondImage, featureDemo, lastSection, sectionDemo, sectionIntegration, teamSection } from '../../../assets'
