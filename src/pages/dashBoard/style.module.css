@@ -1,0 +1,9 @@
+.folderButton{
+    background-color: #FFFFFF14;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 170px;
+}

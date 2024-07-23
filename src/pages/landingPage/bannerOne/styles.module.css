@@ -1,0 +1,99 @@
+.parent {
+    background-color: transparent;
+    /* background: rgb(39, 39, 39) */
+
+
+}
+
+.headerContainer {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+
+.heading {
+    background: linear-gradient(90deg, #4B83FF 0%, #B794F4 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: Outfit;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60.4px;
+    text-align: center;
+
+}
+
+.secondImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    font-family: Open Sans;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+
+}
+
+.button {
+    font-family: Open Sans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.6px;
+    text-align: left;
+    color: #FFFFFF;
+    background-color: #1A5FFF;
+
+}
+
+.orangeShadow {
+    background-color: #E67200;
+    width: 40%;
+    height: 70%;
+    filter: blur(2rem);
+    border-radius: 100%;
+    left: 0px;
+    top: calc(50% - 30px)
+}
+
+.blueShadow {
+    background-color: blue;
+    width: 40%;
+    height: 70%;
+    filter: blur(2rem);
+    border-radius: 100%;
+    left: 0px;
+    top: calc(50% - 30px)
+}
+
+.containerFirst {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.bannerOneDashBoard {
+    /* position: absolute;
+    left: 10px;
+    top: 2px; */
+    /* width: calc(100% - 80px); */
+    height: 500px;
+    z-index: 20;
+}
+
+.shadowDiv {
+    position: absolute;
+    z-index: 10;
+    width: 110%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: calc(100% - 80px); */
+}

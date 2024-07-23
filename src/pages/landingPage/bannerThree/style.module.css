@@ -1,0 +1,38 @@
+.bannerThreeFirstImage {
+
+    /* width: 80%; */
+}
+
+.bannerOne {
+    display: grid;
+    grid-template-columns: 10% 50% 30% 10%;
+    width: 100%;
+    padding-top: 200px;
+}
+
+.bannerTwo {
+    display: grid;
+    grid-template-columns: 10% 30% 50% 10%;
+    width: 100%;
+    padding-top: 200px;
+}
+
+h2 {
+    font-family: Outfit;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.2px;
+    text-align: left;
+    color: white;
+
+}
+
+p {
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    color: #A0AEC0;
+    
+}

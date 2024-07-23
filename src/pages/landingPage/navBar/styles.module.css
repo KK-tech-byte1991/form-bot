@@ -1,0 +1,57 @@
+.parent {
+    /* width: 100%; */
+    /* background-color: #171923; */
+    background-color: transparent;
+    color: white;
+
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.brandName {
+    font-family: Outfit;
+    line-height: 21.6px;
+    text-align: left;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.brandContainer {
+    display: flex;
+    align-items: center;
+    width: 12vw;
+    justify-content: space-around;
+}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    width: 25VW;
+
+}
+
+.createFormButton {
+    box-shadow: 0px 1px 0px 0px #FFFFFF33 inset;
+    background-color: #1A5FFF;
+    color: #fff;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+.signInButton {
+    border: 2px solid #7EA6FF;
+    background-color: transparent;
+    color: #7EA6FF;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    text-align: left;
+
+}
