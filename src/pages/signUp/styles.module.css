@@ -28,21 +28,17 @@
 }
 
 .form {
-    
-
     width: 50%;
     padding-left: 80px;
     padding-right: 40px;
     margin: auto;
-
-
-
 }
-.form>form{
+
+.form>form {
     font-family: Open Sans;
     font-size: 12px;
-    font-weight: 600;
-    line-height: 19px;
+    font-weight: 700;
+    /* line-height: 19px; */
     text-align: left;
     color: white;
     display: flex;
@@ -56,6 +52,7 @@
     width: 90%;
     /* height: 40px; */
     padding: 9px;
+    color: white;
 }
 
 .form>form>input::placeholder {
@@ -76,24 +73,40 @@
 
 }
 
-.form >form>p{
+.form>form>p {
     font-family: Inter;
-font-size: 14px;
-font-weight: 400;
-line-height: 16.94px;
-letter-spacing: 0.03em;
-text-align: center;
-color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: white;
 
 }
-.secondDiv{
+
+.errorPara {
+    color: red !important;
+    font-size: 12px !important;
+    line-height: 2px !important;
+}
+
+.secondDiv {
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
     position: relative;
 }
-.bottomImage{
+
+.bottomImage {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.errorlabel {
+    color: red !important
+}
+
+.errorInput {
+    border: 2px solid red !important;
 }

@@ -1,8 +1,44 @@
 
 import styles from "./styles.module.css"
 import { backArrow, loginEclipseBottom, loginEclipseRight, loginGroup } from '../../assets'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { SubmitHandler, useForm } from "react-hook-form"
+import axios from "axios"
+import { BASE_URL } from "../../services/baseUrl"
+import { toast } from "sonner"
+import { useAuth } from "../../AuthContext"
+type Inputs = {
+    username: string
+    password: string
+
+}
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        
+        formState: { errors },
+    } = useForm<Inputs>()
+    const { login } = useAuth();
+    const navigate = useNavigate()
+   
+    const onSubmit: SubmitHandler<Inputs> = (data) => {
+
+        let payload = JSON.parse(JSON.stringify(data))
+
+      
+
+        axios.post(BASE_URL + "auth/login", payload).then((res) => {
+
+            console.log("res", res)
+            const token = res.data.token;
+
+            login(token)
+            navigate("/dashboard")
+
+
+        }).catch((err) => { toast.error("err.msg"); console.log(err) })
+    }
     return (
         <div className={styles.parent}>
             <div className={styles.header}>
@@ -11,7 +47,7 @@ const Login = () => {
             <div className={styles.container}>
                 <div><img src={loginGroup} alt="loginGroup" /></div>
                 <div className={styles.secondDiv}>
-                    <div className={styles.form}>
+                    {/* <div className={styles.form}>
                         <label>    Email </label>
                         <input type="text" placeholder='Enter your email' />
                         <br />
@@ -21,7 +57,46 @@ const Login = () => {
                         <button className={styles.logInButton}>Log In</button>
                         <br />
                         <p>Don’t have an account? <Link to="/signup"><span style={{ color: "blue" }}>Register now</span></Link></p>
-                    </div>
+                    </div> */}
+                    <div className={styles.form}>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <label
+                                htmlFor="username"
+                                className={errors.username && styles.errorlabel}>   Username </label>
+
+                            <input
+                                className={errors.username && styles.errorInput}
+                                type="text"
+                                id="username"
+                                placeholder='Enter a username'
+                                {...register("username", {
+                                    required: 'Username is required'
+                                })} />
+
+                            {errors.username ? <p className={styles.errorPara}>{errors.username.message}</p> : <p className={styles.errorPara}></p>}
+
+
+
+                            <label htmlFor="password" className={errors.password && styles.errorlabel}>    Password </label>
+                            <input
+                                type="password"
+                                className={errors.password && styles.errorInput}
+                                id="password"
+                                placeholder='********'
+                                {...register('password', {
+                                    required: 'Password is required',
+                                })}
+                            />
+                            {errors.password ? <p className={styles.errorPara}>{errors.password.message}</p> : <p className={styles.errorPara}></p>}
+
+
+                            <button className={styles.logInButton} type="submit" onClick={() => { handleSubmit(onSubmit) }}>Log In</button>
+                            {/* <input type="submit" /> */}
+                            <br />
+                            <p>Don’t have an account? <Link to="/signup"><span style={{ color: "blue" }}>Register now</span></Link></p>
+
+                        </form></div>
+
                     <img className={styles.bottomImage} src={loginEclipseBottom} alt="loginEclipseBottom" />
                 </div>
                 <div className={styles.thirdDiv}><img src={loginEclipseRight} alt="loginEclipseRight" /></div>

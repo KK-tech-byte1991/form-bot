@@ -4,11 +4,13 @@ import './App.css'
 import Landing from './pages/landingPage'
 import {
   createBrowserRouter,
-  RouterProvider, 
+  RouterProvider,
 } from "react-router-dom";
 import Login from './pages/Login/login';
 import SignUp from './pages/signUp/signUp';
 import Dashboard from './pages/dashBoard';
+import { AuthProvider } from './AuthContext';
+import ProtectedRoute from './ProtectRoute';
 
 const router = createBrowserRouter([
   {
@@ -25,14 +27,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <ProtectedRoute  Component={Dashboard} />
   }
 ]);
 function App() {
 
 
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   )
 }
 

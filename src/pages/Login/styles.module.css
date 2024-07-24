@@ -28,35 +28,34 @@
 }
 
 .form {
-    font-family: Open Sans;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 25px;
-    text-align: left;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
     width: 50%;
     padding-left: 80px;
     padding-right: 40px;
     margin: auto;
-    /* border-radius: 5px;
-    border: 1px solid #FFFFFF29; */
-
-
 }
 
-.form>input {
+.form>form {
+    font-family: Open Sans;
+    font-size: 12px;
+    font-weight: 700;
+    /* line-height: 19px; */
+    text-align: left;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.form>form>input {
     background-color: transparent;
     border-radius: 10px;
     border: 2px solid #FFFFFF29;
     width: 90%;
     /* height: 40px; */
-    padding: 11px;
+    padding: 9px;
+    color: white;
 }
 
-.form>input::placeholder {
+.form>form>input::placeholder {
     color: #FFFFFF29;
 }
 
@@ -74,24 +73,40 @@
 
 }
 
-.form >p{
+.form>form>p {
     font-family: Inter;
-font-size: 16px;
-font-weight: 400;
-line-height: 16.94px;
-letter-spacing: 0.03em;
-text-align: center;
-color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    letter-spacing: 0.03em;
+    text-align: center;
+    color: white;
 
 }
-.secondDiv{
+
+.errorPara {
+    color: red !important;
+    font-size: 12px !important;
+    line-height: 2px !important;
+}
+
+.secondDiv {
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
     position: relative;
 }
-.bottomImage{
+
+.bottomImage {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.errorlabel {
+    color: red !important
+}
+
+.errorInput {
+    border: 2px solid red !important;
 }

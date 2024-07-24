@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css"
+import { useAuth } from "../../../AuthContext";
 
 const NavBar = () => {
 
@@ -24,6 +25,7 @@ const NavBar = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+    const { logout } = useAuth()
     return (
         <div className={styles.parent}>
             <div className={styles.popupContainer}>
@@ -35,7 +37,9 @@ const NavBar = () => {
                             <li>Settings</li>
                             <li style={{
                                 color: "#FFA54C"
-                            }}>Logout</li>
+                            }}
+                                onClick={() => logout()}
+                            >Logout</li>
                         </ul>
                     </div>
                 )}
