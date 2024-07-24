@@ -10,7 +10,6 @@ import { useAuth } from "../../AuthContext"
 type Inputs = {
     username: string
     password: string
-
 }
 const Login = () => {
     const {
