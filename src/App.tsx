@@ -4,7 +4,7 @@ import './App.css'
 import Landing from './pages/landingPage'
 import {
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider, 
 } from "react-router-dom";
 import Login from './pages/Login/login';
 import SignUp from './pages/signUp/signUp';
