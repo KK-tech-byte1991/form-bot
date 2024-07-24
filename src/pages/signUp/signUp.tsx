@@ -34,10 +34,9 @@ const SignUp = () => {
 
     axios.post(BASE_URL + "auth/register", payload).then((res) => {
 
-      console.log("res", res)
-      const token = res.data.token;
+      console.log("res", res)     
       
-      login(token)
+      login(res.data)
       navigate("/dashboard")
 
 

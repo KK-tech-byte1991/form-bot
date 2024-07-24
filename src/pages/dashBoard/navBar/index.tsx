@@ -4,7 +4,7 @@ import { useAuth } from "../../../AuthContext";
 
 const NavBar = () => {
 
-
+    const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
     const [isVisible, setIsVisible] = useState(false);
     const menuRef = useRef();
 
@@ -29,7 +29,8 @@ const NavBar = () => {
     return (
         <div className={styles.parent}>
             <div className={styles.popupContainer}>
-                <button onClick={toggleMenu} className={styles.popup}>Dewank Rastogi's workspace</button>
+                <button onClick={toggleMenu}
+                    className={styles.popup}>{userDetails.username + "'s " + "workspace"} </button>
                 {isVisible && (
                     //@ts-ignore
                     <div className={styles.popupMenu} ref={menuRef}>

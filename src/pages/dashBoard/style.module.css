@@ -1,4 +1,4 @@
-.folderButton{
+.folderButton {
     background-color: #FFFFFF14;
     color: #fff;
     font-size: 14px;
@@ -6,4 +6,21 @@
     align-items: center;
     justify-content: space-around;
     min-width: 170px;
+    max-width: 200px;
+}
+
+.folderContainer {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    padding: 20px;
+    row-gap: 20px;
+
+}
+
+.addFolderButton {
+    padding: 0px;
+    border: none;
+    height: fit-content;
+    background-color: transparent;
 }

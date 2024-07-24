@@ -15,27 +15,20 @@ const Login = () => {
     const {
         register,
         handleSubmit,
-        
+
         formState: { errors },
     } = useForm<Inputs>()
     const { login } = useAuth();
     const navigate = useNavigate()
-   
+
     const onSubmit: SubmitHandler<Inputs> = (data) => {
 
         let payload = JSON.parse(JSON.stringify(data))
 
-      
-
         axios.post(BASE_URL + "auth/login", payload).then((res) => {
-
             console.log("res", res)
-            const token = res.data.token;
-
-            login(token)
+            login(res.data)
             navigate("/dashboard")
-
-
         }).catch((err) => { toast.error("err.msg"); console.log(err) })
     }
     return (
