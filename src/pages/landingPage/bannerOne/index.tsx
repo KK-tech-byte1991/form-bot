@@ -1,7 +1,9 @@
 
 import styles from "./styles.module.css"
 import { bannerOneDashBoard, bannerOneFirstImage, bannerOneSecondImage } from '../../../assets'
+import { useNavigate } from "react-router-dom"
 const BannerOne = () => {
+    const navigate = useNavigate()
     return (
         <div className={styles.parent}>
             <div className={styles.headerContainer}>
@@ -12,7 +14,9 @@ const BannerOne = () => {
                     <h2 className={styles.heading}>Build advanced chatbots visually</h2>
                     <p className={styles.description}>Typebot gives you powerful blocks to create unique chat experiences.
                         Embed them anywhere on your web/mobile apps and start collecting results like magic.</p>
-                    <button className={styles.button}>Create a FormBot for free</button>
+                    <button
+                        className={styles.button}
+                        onClick={() => navigate("/signup")}>Create a FormBot for free</button>
                 </div>
                 <div className={styles.secondImage}>
                     <img src={bannerOneSecondImage} />
@@ -21,9 +25,9 @@ const BannerOne = () => {
 
             <div className={styles.containerFirst}>
                 <div className={styles.shadowDiv}>
-                <div className={styles.orangeShadow}></div>
+                    <div className={styles.orangeShadow}></div>
                     <div className={styles.blueShadow}></div>
-                    
+
                 </div>
 
                 <img src={bannerOneDashBoard} className={styles.bannerOneDashBoard} />

@@ -2,7 +2,9 @@
 
 import styles from "./style.module.css"
 import { bannerThreeFirstImage, bannerThreeSecondImage, featureDemo, lastSection, sectionDemo, sectionIntegration, teamSection } from '../../../assets'
+import { useNavigate } from "react-router-dom"
 const BannerThree = () => {
+  const navigate =useNavigate()
   return (
     <>
       <div className={styles.bannerOne}>
@@ -12,7 +14,7 @@ const BannerThree = () => {
         <div>
           <h2>Easy building experience</h2>
           <p>All you have to do is drag and drop blocks to create your app.
-             Even if you have custom needs, you can always add custom code.</p>
+            Even if you have custom needs, you can always add custom code.</p>
         </div>
         <div></div>
       </div>
@@ -27,25 +29,25 @@ const BannerThree = () => {
         </div>
       </div>
       <div>
-        <img style={{width:"100vw"}} src={sectionIntegration}/>
+        <img style={{ width: "100vw" }} src={sectionIntegration} />
       </div>
       <div>
-      <img style={{width:"100vw"}} src={sectionDemo}/>
+        <img style={{ width: "100vw" }} src={sectionDemo} />
 
       </div>
       <div>
-      <img style={{width:"100vw"}} src={featureDemo}/>
+        <img style={{ width: "100vw" }} src={featureDemo} />
 
       </div>
-      <br/>
+      <br />
       <div>
-      <img style={{width:"100vw"}} src={teamSection}/>
+        <img style={{ width: "100vw" }} src={teamSection} />
 
       </div>
-      {/* <div> */}
-      <img style={{width:"100vw"}} src={lastSection}/>
-
-      {/* </div> */}
+      <div style={{ position: "relative" }}>
+        <img style={{ width: "100vw", marginLeft: "-50px" }} src={lastSection} />
+        <button className={styles.createFormButton} onClick={()=>navigate("/signup")}>Create a FormBot</button>
+      </div>
     </>
   )
 }

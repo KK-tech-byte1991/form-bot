@@ -61,7 +61,8 @@
     line-height: 41px;
     background-color: transparent;
     border: none;
-    color: white
+    color: white;
+    
 }
 
 .button:hover {

@@ -17,7 +17,10 @@ const Dashboard = () => {
   const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
   const [folderList, setFolderList] = useState<Folder[]>([])
   const [createOpen, setCreateOpen] = useState(false)
+  const [folderDeleteOpen, setFolderDeleteOpen] = useState(false)
 
+  const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
+console.log(folderDeleteOpen,selectedFolder)
   const getFolderList = () => {
     axiosInstance.get("/folder/getByUserId/" + userDetails.userId).then((res) => {
       setFolderList(res.data)
@@ -33,9 +36,15 @@ const Dashboard = () => {
       <NavBar />
       <div className={styles.folderContainer}>
         <button className={styles.folderButton}><img src={folderIcon} />Create a Folder</button>
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}>{folder.folderName}<img src={deleteIcon} alt="delete"/></button>)}
-
-
+        {folderList.map((folder: Folder) => <div
+          className={styles.folderButton}
+        >
+          {folder.folderName}
+          <img src={deleteIcon}
+            alt="delete"
+            onClick={() => { setSelectedFolder(folder.id); setFolderDeleteOpen(true) }}
+            style={{ cursor: "pointer" }}
+          /></div>)}
 
       </div>
       <div className={styles.formContainer}>
