@@ -39,17 +39,7 @@ const Login = () => {
             <div className={styles.container}>
                 <div><img src={loginGroup} alt="loginGroup" /></div>
                 <div className={styles.secondDiv}>
-                    {/* <div className={styles.form}>
-                        <label>    Email </label>
-                        <input type="text" placeholder='Enter your email' />
-                        <br />
-                        <label>    Password </label>
-                        <input type="password" placeholder='password' />
-                        <br />
-                        <button className={styles.logInButton}>Log In</button>
-                        <br />
-                        <p>Don’t have an account? <Link to="/signup"><span style={{ color: "blue" }}>Register now</span></Link></p>
-                    </div> */}
+                   
                     <div className={styles.form}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <label

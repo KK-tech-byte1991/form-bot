@@ -12,7 +12,7 @@
 .folderContainer {
     display: grid;
     column-gap: 50px;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     padding: 20px;
     row-gap: 20px;
 
@@ -23,4 +23,9 @@
     border: none;
     height: fit-content;
     background-color: transparent;
+}
+
+.formContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
 }

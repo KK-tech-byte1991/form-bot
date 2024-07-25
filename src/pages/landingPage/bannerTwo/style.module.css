@@ -105,6 +105,7 @@ textarea {
 .form>textarea::placeholder {
     color: #FFFFFF29;
 }
+
 .button {
     font-family: Open Sans;
     font-size: 14px;

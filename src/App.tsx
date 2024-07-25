@@ -11,6 +11,7 @@ import SignUp from './pages/signUp/signUp';
 import Dashboard from './pages/dashBoard';
 import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectRoute';
+import { Toaster } from 'sonner';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <AuthProvider>
+      <Toaster richColors/>
       <RouterProvider router={router} />
     </AuthProvider>
   )

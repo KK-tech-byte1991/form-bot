@@ -1,10 +1,13 @@
 
 import NavBar from './navBar'
-import { addFolderButton, folderIcon } from '../../assets'
+import { addFolderButton, deleteIcon, folderIcon } from '../../assets'
 import styles from "./style.module.css"
 import { useEffect, useState } from 'react'
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import axiosInstance from '../../services/axiosInstance'
+import CreateNewFolder from './createNewFolder/createNewFolder';
+
 interface Folder {
   folderName: string,
   id: string
@@ -13,33 +16,69 @@ interface Folder {
 const Dashboard = () => {
   const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
   const [folderList, setFolderList] = useState<Folder[]>([])
-  useEffect(() => {
+  const [createOpen, setCreateOpen] = useState(false)
+
+  const getFolderList = () => {
     axiosInstance.get("/folder/getByUserId/" + userDetails.userId).then((res) => {
       setFolderList(res.data)
     })
+  }
+  useEffect(() => {
+    getFolderList()
   }, [])
 
-  console.log("folderList", folderList)
+  console.log("folderList", createOpen)
   return (
     <div>
       <NavBar />
       <div className={styles.folderContainer}>
         <button className={styles.folderButton}><img src={folderIcon} />Create a Folder</button>
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
+        {folderList.map((folder: Folder) => <button className={styles.folderButton}>{folder.folderName}<img src={deleteIcon} alt="delete"/></button>)}
 
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
 
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
-        {folderList.map((folder: Folder) => <button className={styles.folderButton}><img src={folderIcon} />{folder.folderName}</button>)}
 
       </div>
-      <button 
-      className={styles.addFolderButton}>
-         <img src={addFolderButton} alt="addFolderButton" />
-      </button>
+      <div className={styles.formContainer}>
 
+        <Popup
+          open={createOpen}
+          onOpen={() => setCreateOpen(true)}
+          trigger={<button
+
+            className={styles.addFolderButton}>
+            <img src={addFolderButton}
+              alt="addFolderButton" />
+          </button>}
+          modal
+          nested
+          position="right center"
+
+        >
+
+          <CreateNewFolder
+            handleClose={setCreateOpen}
+            getFolderList={getFolderList}
+          />
+
+
+        </Popup>
+
+
+        <button
+          className={styles.addFolderButton}>
+          <img src={addFolderButton} alt="addFolderButton" />
+        </button>
+        <button
+          className={styles.addFolderButton}>
+          <img src={addFolderButton} alt="addFolderButton" />
+        </button>
+        <button
+          className={styles.addFolderButton}>
+          <img src={addFolderButton} alt="addFolderButton" />
+        </button>
+
+
+      </div>
     </div>
   )
 }
