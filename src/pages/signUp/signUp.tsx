@@ -3,11 +3,11 @@ import styles from "./styles.module.css"
 import { backArrow, loginEclipseBottom, loginEclipseRight, loginGroup } from '../../assets'
 import { Link } from 'react-router-dom'
 import { useForm, SubmitHandler } from "react-hook-form"
-import axios from "axios"
 import { BASE_URL } from "../../services/baseUrl"
-import { toast } from "sonner"
+
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
+import axiosInstance from "../../services/axiosInstance"
 
 type Inputs = {
   username: string
@@ -30,9 +30,9 @@ const SignUp = () => {
 
     let payload = JSON.parse(JSON.stringify(data))
     delete payload.confirmPassword
-    console.log("hiiii", data, payload, "http:/localhost:5000/api/" + "auth/register")
+   
 
-    axios.post(BASE_URL + "auth/register", payload).then((res) => {
+    axiosInstance.post(BASE_URL + "auth/register", payload).then((res) => {
 
       console.log("res", res)     
       
@@ -40,7 +40,7 @@ const SignUp = () => {
       navigate("/dashboard")
 
 
-    }).catch((err) => { toast.error("err.msg"); console.log(err) })
+    })
   }
 
 

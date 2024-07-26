@@ -3,10 +3,8 @@ import styles from "./styles.module.css"
 import { backArrow, loginEclipseBottom, loginEclipseRight, loginGroup } from '../../assets'
 import { Link, useNavigate } from 'react-router-dom'
 import { SubmitHandler, useForm } from "react-hook-form"
-import axios from "axios"
-import { BASE_URL } from "../../services/baseUrl"
-import { toast } from "sonner"
 import { useAuth } from "../../AuthContext"
+import axiosInstance from "../../services/axiosInstance"
 type Inputs = {
     username: string
     password: string
@@ -25,11 +23,11 @@ const Login = () => {
 
         let payload = JSON.parse(JSON.stringify(data))
 
-        axios.post(BASE_URL + "auth/login", payload).then((res) => {
+        axiosInstance.post("auth/login", payload).then((res) => {
             console.log("res", res)
             login(res.data)
             navigate("/dashboard")
-        }).catch((err) => { toast.error("err.msg"); console.log(err) })
+        })
     }
     return (
         <div className={styles.parent}>
@@ -39,7 +37,7 @@ const Login = () => {
             <div className={styles.container}>
                 <div><img src={loginGroup} alt="loginGroup" /></div>
                 <div className={styles.secondDiv}>
-                   
+
                     <div className={styles.form}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <label

@@ -46,7 +46,9 @@ const BannerThree = () => {
       </div>
       <div style={{ position: "relative" }}>
         <img style={{ width: "100vw", marginLeft: "-50px" }} src={lastSection} />
-        <button className={styles.createFormButton} onClick={()=>navigate("/signup")}>Create a FormBot</button>
+        <button 
+        className={styles.createFormButton}
+         onClick={()=>navigate("/signup")}>Create a FormBot</button>
       </div>
     </>
   )
