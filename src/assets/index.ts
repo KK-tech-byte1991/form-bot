@@ -21,6 +21,25 @@ import goTo from "./goTo.svg"
 import lock from "./lock.svg"
 import personIcon from "./personIcon.svg"
 import logoutIcon from "./logOutIcon.svg"
+
+import imageBubble from "./imageBubble.svg"
+import gifBubble from "./gifBubble.svg"
+import textBubble from "./textBubble.svg"
+import videoBubble from "./videoBubble.svg"
+
+import numberInput from "./numberInput.svg"
+import textInput from "./textInput.svg"
+import ratingInput from "./ratingInput.svg"
+import phoneInput from "./phoneInput.svg"
+import emailInput from "./emailinput.svg"
+import dateInput from "./dateInput.svg"
+import buttonInput from "./buttonInput.svg"
+import startFlow from "./startFlow.svg"
+import light from "./light.svg"
+import dark from "./dark.svg"
+import tailBlue from "./tailBlue.svg"
+import themeLight from "./themeLight.svg"
+import themeDark from "./themeDark.svg"
 export {
     bannerOneFirstImage, bannerOneSecondImage,
     bannerOneDashBoard, rightImageSecondBanner, cross,
@@ -39,5 +58,21 @@ export {
     addFolderButton,
     goTo,
     lock, personIcon,
-    logoutIcon
+    logoutIcon,
+    imageBubble,
+    gifBubble,
+    textBubble,
+    videoBubble,
+    numberInput,
+    textInput,
+    ratingInput,
+    phoneInput,
+    emailInput,
+    dateInput,
+    buttonInput,
+    startFlow,
+    tailBlue,
+    light, dark,
+    themeDark,
+    themeLight
 }

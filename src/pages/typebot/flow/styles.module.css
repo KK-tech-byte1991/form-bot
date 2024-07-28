@@ -1,0 +1,7 @@
+.container{
+    background-color: #1F1F23;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    padding: 10px;
+    height: 90%;
+}

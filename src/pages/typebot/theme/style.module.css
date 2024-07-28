@@ -1,0 +1,7 @@
+.themeContainer{
+    background-color: #1F1F23;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    /* padding: 10px; */
+    height: 90%;
+}

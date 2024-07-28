@@ -1,0 +1,83 @@
+.parent {
+    color: white;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+
+}
+
+
+
+.popup {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #FFFFFF29;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.2px;
+    text-align: center;
+
+}
+.popupSelected {
+    background-color: transparent;
+    color: blue;
+    border: 2px solid blue;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.2px;
+    text-align: center;
+
+}
+
+.formName {
+    color: #767676D1;
+
+    font-weight: 500;
+    height: 60%;
+    margin-top: 5px;
+    background-color: #37373E;
+    ;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cancelButton {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-weight: 900;
+    font-size: 20px;
+    padding: 0%;
+    padding-left: 20px;
+}
+
+.shareButton {
+    color: white;
+    background-color: #37373E;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 80%;
+
+}
+
+.saveButton {
+    background: #4ADE80CC;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 80%;
+}
+
+
+
+.popupContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

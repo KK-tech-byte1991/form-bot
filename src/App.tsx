@@ -13,6 +13,7 @@ import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectRoute';
 import { Toaster } from 'sonner';
 import Settings from './pages/settings';
+import TypeBot from './pages/typebot';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   }, {
     path: "/settings",
     element: <ProtectedRoute Component={Settings} />
+  },
+  {
+    path:"/typebot",
+    element:<ProtectedRoute Component={TypeBot}/>
   }
 ]);
 function App() {

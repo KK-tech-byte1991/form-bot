@@ -1,0 +1,20 @@
+.firstDiv {
+    display: flex;
+    gap: 30px;
+    padding-left: 20px;
+}
+
+.secondDiv {
+    display: flex;
+    gap: 30px;
+    padding-right: 70px;
+    justify-content: flex-end;
+    /* width: 100%; */
+    margin-right: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
