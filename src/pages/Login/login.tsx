@@ -13,12 +13,10 @@ const Login = () => {
     const {
         register,
         handleSubmit,
-
         formState: { errors },
     } = useForm<Inputs>()
     const { login } = useAuth();
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     const onSubmit: SubmitHandler<Inputs> = (data) => {
 
         let payload = JSON.parse(JSON.stringify(data))

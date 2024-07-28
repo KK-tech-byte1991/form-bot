@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem('authToken', userDetails.token);
     let withoutToken = JSON.parse(JSON.stringify(userDetails))
     delete withoutToken.token
+    console.log("withoutToken",withoutToken)
     localStorage.setItem("userDetails", JSON.stringify(withoutToken))
     setIsAuthenticated(true);
 

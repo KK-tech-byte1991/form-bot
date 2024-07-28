@@ -12,6 +12,7 @@ import Dashboard from './pages/dashBoard';
 import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectRoute';
 import { Toaster } from 'sonner';
+import Settings from './pages/settings';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <ProtectedRoute  Component={Dashboard} />
+    element: <ProtectedRoute Component={Dashboard} />
+  }, {
+    path: "/settings",
+    element: <ProtectedRoute Component={Settings} />
   }
 ]);
 function App() {
@@ -36,7 +40,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <Toaster richColors/>
+      <Toaster richColors />
       <RouterProvider router={router} />
     </AuthProvider>
   )

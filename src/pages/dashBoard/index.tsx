@@ -1,5 +1,4 @@
 
-import NavBar from './navBar'
 import { addFolderButton, deleteIcon, folderIcon } from '../../assets'
 import styles from "./style.module.css"
 import { useEffect, useState } from 'react'
@@ -7,6 +6,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import axiosInstance from '../../services/axiosInstance'
 import CreateNewFolder from './createNewFolder/createNewFolder';
+import NavBar from '../navBar';
 
 interface Folder {
   folderName: string,
@@ -18,7 +18,6 @@ const Dashboard = () => {
   const [folderList, setFolderList] = useState<Folder[]>([])
   const [createOpen, setCreateOpen] = useState(false)
   const [folderDeleteOpen, setFolderDeleteOpen] = useState(false)
-
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
 console.log(folderDeleteOpen,selectedFolder)
   const getFolderList = () => {

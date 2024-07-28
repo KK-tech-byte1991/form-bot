@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.settingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: auto;
+    width: fit-content;
+    margin-top: 10%;
+}
+
+.inputContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.inputContainer::before {
+    content: url('../../assets/personIcon.svg');
+    width: 20px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
+
+
+.inputContainer input {
+    padding-right: 30px;
+    width: 300px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 40px;
+    border: 2px solid white;
+    color: white;
+    text-align: left;
+}
+
+.inputContainerLock {
+    position: relative;
+    display: inline-block;
+}
+
+.inputContainerLock::before {
+    content: url('../../assets/lock.svg');
+    width: 20px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.currentFunctionButton{
+    background-color: blue;
+    border-radius: 30px;
+}
+
+
+
+
+.inputContainerLock input {
+    padding-right: 30px;
+    width: 300px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 40px;
+    border: 2px solid white;
+    color: white;
+    text-align: left;
+}
+
+.heading{
+    color: white;
+    position: absolute;
+    top:2%
+    /* margin-top: 50px; */
+}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css"
-import { useAuth } from "../../../AuthContext";
+import { useAuth } from "../../AuthContext";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
@@ -35,7 +36,7 @@ const NavBar = () => {
                     //@ts-ignore
                     <div className={styles.popupMenu} ref={menuRef}>
                         <ul>
-                            <li>Settings</li>
+                            <li ><Link to="/settings">Settings</Link></li>
                             <li style={{
                                 color: "#FFA54C"
                             }}

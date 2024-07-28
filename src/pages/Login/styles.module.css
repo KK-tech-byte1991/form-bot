@@ -45,7 +45,7 @@
     flex-direction: column;
 }
 
-.form>form>input {
+.form form input {
     background-color: transparent;
     border-radius: 10px;
     border: 2px solid #FFFFFF29;

@@ -24,7 +24,7 @@ axiosInstance.interceptors.request.use(
 // Add response interceptor
 axiosInstance.interceptors.response.use(
     response => {
-        console.log("response",response)
+        console.log("response", response)
         return response;
     },
     error => {

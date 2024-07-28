@@ -18,6 +18,9 @@ import folderIcon from "./folderIcon.svg"
 import deleteIcon from "./deleteIcon.svg"
 import addFolderButton from "./addFolderButton.svg"
 import goTo from "./goTo.svg"
+import lock from "./lock.svg"
+import personIcon from "./personIcon.svg"
+import logoutIcon from "./logOutIcon.svg"
 export {
     bannerOneFirstImage, bannerOneSecondImage,
     bannerOneDashBoard, rightImageSecondBanner, cross,
@@ -33,5 +36,8 @@ export {
     loginEclipseRight,
     folderIcon,
     deleteIcon,
-    addFolderButton, goTo
+    addFolderButton,
+    goTo,
+    lock, personIcon,
+    logoutIcon
 }
