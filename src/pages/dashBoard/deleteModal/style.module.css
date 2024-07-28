@@ -1,0 +1,91 @@
+.container {
+    width: 350px;
+    /* height: 201px; */
+    left: 245px;
+    gap: 0px;
+    border-radius: 24px;
+    opacity: 0px;
+    background-color: #18181B;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    border: grey 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-family: Open Sans;
+    font-size: 22.33px;
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: left;
+
+
+}
+
+.folderInputName {
+    background: #1F1F23;
+    width: 95%;
+    height: 40px;
+    gap: 0px;
+    opacity: 0px;
+    text-align: left;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 20.33px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+}
+
+.folderInputName:focus-visible {
+    background: #1F1F23;
+    width: 95%;
+    height: 40px;
+    gap: 0px;
+    opacity: 0px;
+    text-align: left;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 20.33px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+}
+
+.button {
+    font-family: Open Sans;
+    font-size: 20.33px;
+    font-weight: 700;
+    line-height: 41px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    
+}
+
+.button:hover {
+
+    background-color: transparent;
+    border: none;
+    color: blue;
+
+}
+
+.button:focus {
+    background-color: transparent;
+    border: none;
+    color: blue;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.errorPara {
+    color: red !important;
+    font-size: 12px !important;
+    line-height: 2px !important;
+}

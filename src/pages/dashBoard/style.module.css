@@ -11,6 +11,32 @@
     border-radius: 10px;
 }
 
+.selectedFolder {
+    background-color: #FFFFFF14;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 170px;
+    max-width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: solid 2px blue;
+}
+
+.selectedFolder button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
+.folderButton button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
 .folderContainer {
     display: grid;
     column-gap: 50px;

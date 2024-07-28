@@ -7,10 +7,12 @@ import 'reactjs-popup/dist/index.css';
 import axiosInstance from '../../services/axiosInstance'
 import CreateNewFolder from './createNewFolder/createNewFolder';
 import NavBar from '../navBar';
+import DeleteModal from './deleteModal';
+import { Link } from 'react-router-dom';
 
 interface Folder {
   folderName: string,
-  id: string
+  _id: string
 
 }
 const Dashboard = () => {
@@ -19,7 +21,9 @@ const Dashboard = () => {
   const [createOpen, setCreateOpen] = useState(false)
   const [folderDeleteOpen, setFolderDeleteOpen] = useState(false)
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
-console.log(folderDeleteOpen,selectedFolder)
+
+  console.log(folderDeleteOpen, selectedFolder, folderList, "selectedFolder")
+
   const getFolderList = () => {
     axiosInstance.get("/folder/getByUserId/" + userDetails.userId).then((res) => {
       setFolderList(res.data)
@@ -34,32 +38,13 @@ console.log(folderDeleteOpen,selectedFolder)
     <div>
       <NavBar />
       <div className={styles.folderContainer}>
-        <button className={styles.folderButton}><img src={folderIcon} />Create a Folder</button>
-        {folderList.map((folder: Folder) => <div
-          className={styles.folderButton}
-        >
-          {folder.folderName}
-          <img src={deleteIcon}
-            alt="delete"
-            onClick={() => { setSelectedFolder(folder.id); setFolderDeleteOpen(true) }}
-            style={{ cursor: "pointer" }}
-          /></div>)}
-
-      </div>
-      <div className={styles.formContainer}>
-
         <Popup
           open={createOpen}
           onOpen={() => setCreateOpen(true)}
-          trigger={<button
-
-            className={styles.addFolderButton}>
-            <img src={addFolderButton}
-              alt="addFolderButton" />
-          </button>}
+          trigger={<button className={styles.folderButton}><img src={folderIcon} />Create a Folder</button>}
           modal
           nested
-          position="right center"
+          position="center center"
 
         >
 
@@ -72,7 +57,46 @@ console.log(folderDeleteOpen,selectedFolder)
         </Popup>
 
 
-        <button
+
+        {folderList.map((folder: Folder) => <div
+          className={selectedFolder == folder._id ? styles.selectedFolder : styles.folderButton}
+        >
+          <button onClick={() => { setSelectedFolder(folder._id); }}> {folder.folderName} </button>
+
+          <img src={deleteIcon}
+            alt="delete"
+            onClick={() => { setSelectedFolder(folder._id); setFolderDeleteOpen(true) }}
+            style={{ cursor: "pointer" }}
+
+          />
+
+          <Popup
+            open={folderDeleteOpen}
+            modal
+
+          >
+
+            <DeleteModal
+              handleClose={setFolderDeleteOpen}
+              getFolderList={getFolderList}
+              selectedFolder={selectedFolder}
+            />
+          </Popup>
+
+        </div>)}
+
+      </div>
+      <div className={styles.formContainer}>
+      <Link to={"/typebot/new"}>   <button
+
+          className={styles.addFolderButton}>
+          <img src={addFolderButton}
+            alt="addFolderButton" />
+        </button></Link>
+
+
+
+       <button
           className={styles.addFolderButton}>
           <img src={addFolderButton} alt="addFolderButton" />
         </button>
