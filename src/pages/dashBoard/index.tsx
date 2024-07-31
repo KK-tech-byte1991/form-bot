@@ -9,6 +9,7 @@ import CreateNewFolder from './createNewFolder/createNewFolder';
 import NavBar from '../navBar';
 import DeleteModal from './deleteModal';
 import { Link } from 'react-router-dom';
+import { TypeBotInterface } from '../interfaces';
 
 interface Folder {
   folderName: string,
@@ -21,6 +22,7 @@ const Dashboard = () => {
   const [createOpen, setCreateOpen] = useState(false)
   const [folderDeleteOpen, setFolderDeleteOpen] = useState(false)
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null)
+  const [typeBotList, setTypeBotList] = useState([])
 
   console.log(folderDeleteOpen, selectedFolder, folderList, "selectedFolder")
 
@@ -29,9 +31,27 @@ const Dashboard = () => {
       setFolderList(res.data)
     })
   }
+
+  const getTypebotByFolderId = () => {
+    axiosInstance.get("/typebot/getByFolderId/" + selectedFolder).then((res) => {
+      setTypeBotList(res.data)
+    })
+  }
+
+  const getTypeBotByUserId = () => {
+    axiosInstance.get("/typebot/getByUserId/" + userDetails.userId).then((res) => {
+      setTypeBotList(res.data)
+    })
+  }
   useEffect(() => {
     getFolderList()
+    getTypeBotByUserId()
   }, [])
+
+  useEffect(() => {
+    selectedFolder ? getTypebotByFolderId() : getTypeBotByUserId()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedFolder])
 
   console.log("folderList", createOpen)
   return (
@@ -61,7 +81,10 @@ const Dashboard = () => {
         {folderList.map((folder: Folder) => <div
           className={selectedFolder == folder._id ? styles.selectedFolder : styles.folderButton}
         >
-          <button onClick={() => { setSelectedFolder(folder._id); }}> {folder.folderName} </button>
+          <button onClick={() => {
+            selectedFolder == folder._id ? setSelectedFolder(null) : setSelectedFolder(folder._id);
+
+          }}> {folder.folderName} </button>
 
           <img src={deleteIcon}
             alt="delete"
@@ -87,7 +110,7 @@ const Dashboard = () => {
 
       </div>
       <div className={styles.formContainer}>
-      <Link to={"/typebot/new"}>   <button
+        <Link to={selectedFolder ? "/typebot/new/" + selectedFolder : "/typebot/new/userId"}>   <button
 
           className={styles.addFolderButton}>
           <img src={addFolderButton}
@@ -95,23 +118,20 @@ const Dashboard = () => {
         </button></Link>
 
 
+        {typeBotList.map((typeBot: TypeBotInterface) => <Link to={"/typebot/" + typeBot?._id + "/formId"}>
+          <button
+            className={styles.typeFormButton}>
+            {typeBot.formName}
+            <img className={styles.deleteButton} src={deleteIcon} alt="delete" />
+          </button>
+        </Link>)}
 
-       <button
-          className={styles.addFolderButton}>
-          <img src={addFolderButton} alt="addFolderButton" />
-        </button>
-        <button
-          className={styles.addFolderButton}>
-          <img src={addFolderButton} alt="addFolderButton" />
-        </button>
-        <button
-          className={styles.addFolderButton}>
-          <img src={addFolderButton} alt="addFolderButton" />
-        </button>
+
+
 
 
       </div>
-    </div>
+    </div >
   )
 }
 

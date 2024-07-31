@@ -12,7 +12,7 @@ const CreateNewFolder = ({ handleClose, getFolderList }: any) => {
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
 
-        let payload = JSON.parse(JSON.stringify(data))
+        const payload = JSON.parse(JSON.stringify(data))
         payload.userId = userDetails.userId
         axiosInstance.post( "folder/create", payload).then((res) => {
             console.log("res", res)

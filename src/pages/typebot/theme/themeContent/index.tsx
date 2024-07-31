@@ -3,7 +3,10 @@ import styles from "./style.module.css"
 import hi from "./Hi.svg"
 import earth from "./earth.svg"
 import hello from "./hello.svg"
-const ThemeContent = ({ theme }: any) => {
+interface PropType {
+    theme: string
+}
+const ThemeContent = ({ theme }: PropType) => {
     const getColor = (theme: string) => {
 
         switch (theme) {

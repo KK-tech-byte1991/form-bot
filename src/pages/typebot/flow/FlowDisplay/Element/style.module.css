@@ -1,0 +1,48 @@
+.container {
+    background-color: #18181B;
+    padding-left: 10px;
+    color: white;
+    border-radius: 12px;
+    width: 300px;
+    height: fit-content;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.heading {
+    color: white;
+    font-weight: 600;
+}
+
+.container input {
+    width: 80%;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 600;
+    /* line-height: 21px; */
+    text-align: left;
+    background: #1F1F23;
+    color: #C0C0C04F;
+    height: 50px;
+    border-radius: 10px;
+
+
+
+}
+
+.note {
+    font-family: Open Sans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+
+}
+
+
+
+.deleteButton {
+    position: absolute;
+    right: -5px;
+    top: -10px;
+}

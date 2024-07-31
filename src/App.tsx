@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     element: <ProtectedRoute Component={Settings} />
   },
   {
-    path:"/typebot/:id",
+    path:"/typebot/:id/:folderId",
     element:<ProtectedRoute Component={TypeBot}/>
   }
 ]);

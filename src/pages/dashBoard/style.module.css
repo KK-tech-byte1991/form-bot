@@ -55,5 +55,16 @@
 
 .formContainer {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25% ;
+    row-gap: 20px;
+}
+
+.typeFormButton{
+    width: 220px;
+    height:280px;
+}
+.deleteButton {
+    position: absolute;
+    right: -5px;
+    top: -10px;
 }

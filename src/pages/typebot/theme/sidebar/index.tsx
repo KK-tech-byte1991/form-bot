@@ -1,7 +1,12 @@
 
 import { dark, light, tailBlue } from '../../../../assets'
 import styles from "./style.module.css"
-const SideBar = ({ theme, setTheme }:any) => {
+interface PropType {
+    theme: string,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    setTheme: Function
+  }
+const SideBar = ({ theme, setTheme }:PropType) => {
     return (
         <div className={styles.sideContainer}>
             <p className={styles.title}>Customize the theme</p>
