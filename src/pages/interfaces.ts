@@ -10,7 +10,8 @@ interface ElementInterface {
     type: string,
     category: string,
     name: string,
-    link: string
+    link: string,
+    _id?:string
 
 
 }

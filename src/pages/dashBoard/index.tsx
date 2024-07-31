@@ -17,6 +17,7 @@ interface Folder {
 
 }
 const Dashboard = () => {
+  
   const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
   const [folderList, setFolderList] = useState<Folder[]>([])
   const [createOpen, setCreateOpen] = useState(false)

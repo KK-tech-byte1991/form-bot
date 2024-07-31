@@ -30,7 +30,7 @@ const TypeBot = () => {
     const getCurrentStateRender = (currentState: string) => {
         switch (currentState) {
             case "flow":
-                return <Flow flow={flow} setFlow={setFlow} />
+                return <Flow refreshTypeForm={getTypeBoatById} flow={flow} setFlow={setFlow} />
             case "theme":
                 return <Theme theme={theme} setTheme={setTheme} />
             case "response":

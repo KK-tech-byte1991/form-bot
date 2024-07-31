@@ -2,7 +2,8 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  login: (token: string) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  login: (userDetails: any) => void;
   logout: () => void;
 }
 
@@ -11,11 +12,12 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('authToken'));
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const login = (userDetails: any) => {
     localStorage.setItem('authToken', userDetails.token);
-    let withoutToken = JSON.parse(JSON.stringify(userDetails))
+    const withoutToken = JSON.parse(JSON.stringify(userDetails))
     delete withoutToken.token
-    console.log("withoutToken",withoutToken)
+    console.log("withoutToken", withoutToken)
     localStorage.setItem("userDetails", JSON.stringify(withoutToken))
     setIsAuthenticated(true);
 

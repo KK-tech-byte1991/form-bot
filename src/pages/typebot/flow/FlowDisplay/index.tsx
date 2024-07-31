@@ -6,9 +6,11 @@ import { ElementInterface } from "../../../interfaces"
 interface Proptypes{
   flow: ElementInterface[],
   // eslint-disable-next-line @typescript-eslint/ban-types
-  setFlow: Function
+  setFlow: Function,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  refreshTypeForm:Function
 }
-const Flow = ({ flow, setFlow }: Proptypes) => {
+const Flow = ({ flow, setFlow ,refreshTypeForm}: Proptypes) => {
   return (
     <div className={styles.containerFlow}>
       <img style={{ width: "300px" }} src={startFlow} alt="startFlow" />
@@ -18,6 +20,7 @@ const Flow = ({ flow, setFlow }: Proptypes) => {
         index={index}
         setFlow={setFlow}
         flow={flow}
+        refreshTypeForm={refreshTypeForm}
       />)}
     </div>
   )

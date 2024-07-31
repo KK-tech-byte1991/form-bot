@@ -19,12 +19,13 @@ const Login = () => {
     const navigate = useNavigate();
     const onSubmit: SubmitHandler<Inputs> = (data) => {
 
-        let payload = JSON.parse(JSON.stringify(data))
+        const payload = JSON.parse(JSON.stringify(data))
 
         axiosInstance.post("auth/login", payload).then((res) => {
             console.log("res", res)
             login(res.data)
-            navigate("/dashboard")
+            setTimeout(()=>{navigate("/dashboard")},1000)
+            
         })
     }
     return (

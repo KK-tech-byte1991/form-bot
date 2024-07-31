@@ -2,17 +2,26 @@ import axios from 'axios';
 import { BASE_URL } from './baseUrl';
 import { toast } from 'sonner';
 
-let token = localStorage.getItem("authToken")
+
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
-    },
+    timeout: 10000,
+    headers: { 'Content-Type': 'application/json' }
 });
+// const axiosInstance = axios.create({
+//     baseURL: BASE_URL,
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': token
+//     },
+// });
 axiosInstance.interceptors.request.use(
     config => {
-        console.log('Request made with ', config);
+        // const token = sessionStorage.getItem('token');
+        const token = localStorage.getItem("authToken")
+        if (token) {
+            config.headers['Authorization'] = token;
+        }
         return config;
     },
     error => {
@@ -28,6 +37,10 @@ axiosInstance.interceptors.response.use(
         return response;
     },
     error => {
+        // if (error.response.status === 401) {
+
+        //     window.location.href = '/login';
+        // }
         if (error.response) {
             toast.error(error.response.data.msg)
 
