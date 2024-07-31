@@ -1,24 +1,46 @@
-.bubble{
-text-align: left;
+.bubble {
+    text-align: left;
 }
-.input{
-text-align: right;
+
+.input {
+    text-align: right;
 }
-.inputTextDiv{
+
+.inputTextDiv {
     display: flex;
     justify-content: flex-end;
 }
-.inputTextDiv input{
+
+.inputTextDiv input {
     background-color: white;
-    color:black;
+    color: black;
     border-radius: 5px;
     width: 200px;
 }
-.sendButton{
+
+.sendButton {
     background-color: #1A5FFF;
     height: 40px;
     width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sendButton:disabled {
+    background-color: grey;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonInput :disabled {
+    background-color: #FF8E21;
+    color: white;
+}
+.buttonInput  {
+    background-color: blue;
+    color: white;
 }

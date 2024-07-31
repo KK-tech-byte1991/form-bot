@@ -51,12 +51,22 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
 
             </div> :
             <div className={styles.input}>
-                {element.category == "buttonInput" && <button onClick={() => handleSubmit({ value: element.link, name: element.name, code: element.code })}>{element.link}</button>}
+                {element.category == "buttonInput" && <button
+                    className={styles.buttonInput}
+                    onClick={() => handleSubmit({ value: element.link, name: element.name, code: element.code })}
+                    disabled={currentIndex > index}
+                    style={{backgroundColor:currentIndex > index?"#FF8E21":"blue"}}>
+                    {element.link}</button>}
+
                 {element.category == "textInput" &&
                     <div className={styles.inputTextDiv}>
                         <input type="text" placeholder='Enter Your text' disabled={currentIndex > index} onChange={(e) => setValue(e.target.value)}
                         />
-                        <button className={styles.sendButton} disabled={currentIndex > index} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
+                        <button
+                            className={styles.sendButton}
+                            disabled={currentIndex > index}
+
+                            onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "emailInput" &&
@@ -89,7 +99,7 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                 {element.category == "numberInput" &&
                     <div className={styles.inputTextDiv}>
 
-<input
+                        <input
                             type="number"
                             placeholder='Enter a Number'
                             onChange={(e) => setValue(e.target.value)}
@@ -103,11 +113,11 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                         {/* <input type="number" placeholder='Rating'
                             onChange={(e) => setValue(e.target.value)}
                         /> */}
-                       
-                         <Rating
-                          value={value} 
-                         setValue={setValue}
-                          disabled={currentIndex > index} />
+
+                        <Rating
+                            value={value}
+                            setValue={setValue}
+                            disabled={currentIndex > index} />
                         <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}

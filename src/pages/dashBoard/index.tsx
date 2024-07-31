@@ -65,6 +65,7 @@ const Dashboard = () => {
     <div>
       <NavBar />
       <div className={styles.folderContainer}>
+        
         <Popup
           open={createOpen}
           onOpen={() => setCreateOpen(true)}
