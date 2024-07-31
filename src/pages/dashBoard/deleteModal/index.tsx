@@ -3,8 +3,15 @@
 import styles from "./style.module.css"
 import axiosInstance from "../../../services/axiosInstance"
 
-
-const DeleteFolder = ({ handleClose, getFolderList, selectedFolder }: any) => {
+interface PropType {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    handleClose: Function,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    getFolderList: Function,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    selectedFolder: string|null
+}
+const DeleteFolder = ({ handleClose, getFolderList, selectedFolder }: PropType) => {
     // const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
 
     const onSubmit = () => {
@@ -18,12 +25,12 @@ const DeleteFolder = ({ handleClose, getFolderList, selectedFolder }: any) => {
         })
     }
 
- 
+
     return (
         <div className={styles.container}>
 
             <h1 className={styles.heading}>Are you sure you want to delete this folder ?</h1>
-            
+
 
 
             <div className={styles.buttonContainer}>
@@ -35,7 +42,7 @@ const DeleteFolder = ({ handleClose, getFolderList, selectedFolder }: any) => {
                     className={styles.button}
                     onClick={() => handleClose(false)}>Cancel</button>
             </div>
-         
+
         </div>
     )
 }

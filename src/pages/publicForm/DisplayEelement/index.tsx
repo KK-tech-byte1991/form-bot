@@ -24,8 +24,9 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
     }, [])
     console.log("index", index)
     const [value, setValue] = useState<unknown>()
-    const clickSend = (name: string) => {
-        const objectToSend = { name: name, value: value }
+    const clickSend = (name: string, code: string) => {
+        const objectToSend = { name: name, value: value, code: code }
+        console.log("code:stringonnn", objectToSend)
         handleSubmit(objectToSend)
     }
     return (
@@ -50,12 +51,12 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
 
             </div> :
             <div className={styles.input}>
-                {element.category == "buttonInput" && <button onClick={() => handleSubmit({ value: element.link, name: element.name })}>{element.link}</button>}
+                {element.category == "buttonInput" && <button onClick={() => handleSubmit({ value: element.link, name: element.name, code: element.code })}>{element.link}</button>}
                 {element.category == "textInput" &&
                     <div className={styles.inputTextDiv}>
                         <input type="text" placeholder='Enter Your text' disabled={currentIndex > index} onChange={(e) => setValue(e.target.value)}
                         />
-                        <button className={styles.sendButton} disabled={currentIndex > index} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+                        <button className={styles.sendButton} disabled={currentIndex > index} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "emailInput" &&
@@ -64,7 +65,7 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                             onChange={(e) => setValue(e.target.value)}
                             disabled={currentIndex > index}
                         />
-                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "dateInput" &&
@@ -73,7 +74,7 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                             onChange={(e) => setValue(e.target.value)}
                             disabled={currentIndex > index}
                         />
-                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "phoneInput" &&
@@ -82,14 +83,19 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                             onChange={(e) => setValue(e.target.value)}
                             disabled={currentIndex > index}
                         />
-                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "numberInput" &&
                     <div className={styles.inputTextDiv}>
 
-                        <Rating value={value} setValue={setValue} disabled={currentIndex > index}/>
-                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+<input
+                            type="number"
+                            placeholder='Enter a Number'
+                            onChange={(e) => setValue(e.target.value)}
+                            disabled={currentIndex > index}
+                        />
+                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
                 {element.category == "ratingInput" &&
@@ -97,11 +103,12 @@ const DisplayElement = ({ element, index, currentIndex, setCurrentIndex, handleS
                         {/* <input type="number" placeholder='Rating'
                             onChange={(e) => setValue(e.target.value)}
                         /> */}
-                        <input type="number" placeholder='Enter a Number'
-                            onChange={(e) => setValue(e.target.value)}
-                            disabled={currentIndex > index}
-                        />
-                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name) }}><img src={send} alt="" />
+                       
+                         <Rating
+                          value={value} 
+                         setValue={setValue}
+                          disabled={currentIndex > index} />
+                        <button disabled={currentIndex > index} className={styles.sendButton} onClick={() => { clickSend(element.name, element.code) }}><img src={send} alt="" />
                         </button>
                     </div>}
 

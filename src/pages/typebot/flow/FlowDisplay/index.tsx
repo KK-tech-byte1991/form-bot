@@ -14,7 +14,7 @@ const Flow = ({ flow, setFlow ,refreshTypeForm}: Proptypes) => {
   return (
     <div className={styles.containerFlow}>
       <img style={{ width: "300px" }} src={startFlow} alt="startFlow" />
-      {flow.map((element: ElementInterface, index: number) => <Element
+      {flow?.map((element: ElementInterface, index: number) => <Element
         key={index}
         element={element}
         index={index}

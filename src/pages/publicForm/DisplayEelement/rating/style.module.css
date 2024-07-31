@@ -1,3 +1,20 @@
-.ratingButton{
-    border-radius: 20px;
+.ratingButton {
+    border-radius: 15px;
+    background-color: blue;
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    font-size: 20px;
+}
+
+.selectedButton {
+    border-radius: 15px;
+   
+    background: #FF8E21;
+    color: white;
+    padding: 0px;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
 }

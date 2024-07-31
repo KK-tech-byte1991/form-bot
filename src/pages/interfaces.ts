@@ -1,3 +1,5 @@
+
+
 interface TypeBotInterface {
     _id?: string,
     formName: string,
@@ -12,9 +14,18 @@ interface ElementInterface {
     category: string,
     name: string,
     link: string,
-    _id?: string
+    _id?: string,
+    code:string
 
 
 }
 
-export type { TypeBotInterface, ElementInterface }
+interface BubbleInterface {
+
+
+    name: string,
+    img: string,
+    category: string
+
+}
+export type { TypeBotInterface, ElementInterface, BubbleInterface }

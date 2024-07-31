@@ -28,7 +28,7 @@ const SignUp = () => {
   const { login } = useAuth();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
 
-    let payload = JSON.parse(JSON.stringify(data))
+    const payload = JSON.parse(JSON.stringify(data))
     delete payload.confirmPassword
    
 
@@ -37,7 +37,8 @@ const SignUp = () => {
       console.log("res", res)     
       
       login(res.data)
-      navigate("/dashboard")
+      // navigate("/dashboard")
+      setTimeout(()=>{navigate("/dashboard")},1000)
 
 
     })

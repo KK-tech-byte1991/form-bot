@@ -62,6 +62,7 @@
 .typeFormButton{
     width: 220px;
     height:280px;
+    position: relative;
 }
 .deleteButton {
     position: absolute;

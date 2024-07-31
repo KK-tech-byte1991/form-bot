@@ -11,14 +11,15 @@ import DeleteModal from './deleteModal';
 import { Link } from 'react-router-dom';
 import { TypeBotInterface } from '../interfaces';
 
+
 interface Folder {
   folderName: string,
   _id: string
 
 }
 const Dashboard = () => {
-  
-  const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
+
+  const userDetails = JSON.parse(localStorage.getItem("userDetails") ?? "")
   const [folderList, setFolderList] = useState<Folder[]>([])
   const [createOpen, setCreateOpen] = useState(false)
   const [folderDeleteOpen, setFolderDeleteOpen] = useState(false)
@@ -54,6 +55,11 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFolder])
 
+  const handleDeleteForm = (id: string | undefined) => {
+    id && axiosInstance.delete("typebot/" + id).then(() => {
+      selectedFolder ? getTypebotByFolderId() : getTypeBotByUserId()
+    })
+  }
   console.log("folderList", createOpen)
   return (
     <div>
@@ -62,7 +68,7 @@ const Dashboard = () => {
         <Popup
           open={createOpen}
           onOpen={() => setCreateOpen(true)}
-          trigger={<button className={styles.folderButton}><img src={folderIcon} />Create a Folder</button>}
+          trigger={<button className={styles.folderButton}><img src={folderIcon} alt="folderIcon" />Create a Folder</button>}
           modal
           nested
           position="center center"
@@ -79,8 +85,9 @@ const Dashboard = () => {
 
 
 
-        {folderList.map((folder: Folder) => <div
+        {folderList?.map((folder: Folder) => <div
           className={selectedFolder == folder._id ? styles.selectedFolder : styles.folderButton}
+          key={folder._id}
         >
           <button onClick={() => {
             selectedFolder == folder._id ? setSelectedFolder(null) : setSelectedFolder(folder._id);
@@ -119,13 +126,15 @@ const Dashboard = () => {
         </button></Link>
 
 
-        {typeBotList.map((typeBot: TypeBotInterface) => <Link to={"/typebot/" + typeBot?._id + "/formId"}>
+        {typeBotList?.map((typeBot: TypeBotInterface) => (
           <button
+            key={typeBot?._id}
             className={styles.typeFormButton}>
-            {typeBot.formName}
-            <img className={styles.deleteButton} src={deleteIcon} alt="delete" />
-          </button>
-        </Link>)}
+            <Link to={"/typebot/" + typeBot?._id + "/formId"}>
+              {typeBot.formName}</Link>
+            <img className={styles.deleteButton} onClick={() => handleDeleteForm(typeBot._id)} src={deleteIcon} alt="delete" />
+          </button>)
+        )}
 
 
 

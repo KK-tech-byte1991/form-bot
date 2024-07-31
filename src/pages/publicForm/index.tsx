@@ -27,15 +27,16 @@ const Public = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const [currentIndex, setCurrentIndex] = useState(0)
-    const handleSubmit = (element: { name: string, value: string }) => {
+    const handleSubmit = (element: { name: string, value: string ,code:string}) => {
         // const element = {
         //     name: name,
-        //     value: value
+        //     value: value,
         // }
         const payload = {
             formId: params.id,
             elementResponse: [element]
         }
+        console.log("payload",payload)
         const uploadPayload = { element: element }
         !responseId ? axios.post(BASE_URL + "public/createResponse/", payload).then((res) => {
             setResponseId(res.data._id)
@@ -50,7 +51,7 @@ const Public = () => {
     return (
         <div className={styles.chatContainer} style={{ backgroundColor: flowSchema?.theme ? getColor(flowSchema?.theme) : "black" }}>
 
-            {flowSchema?.flow.map((elem: ElementInterface, index: number) => (index <= currentIndex ? <DisplayElement
+            {flowSchema?.flow?.map((elem: ElementInterface, index: number) => (index <= currentIndex ? <DisplayElement
                 index={index}
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}

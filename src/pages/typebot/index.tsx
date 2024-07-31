@@ -19,6 +19,7 @@ const TypeBot = () => {
     const navigate = useNavigate()
     const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
     const [formData, setFormData] = useState<TypeBotInterface | null>(null)
+    const [counter,setCounter]=useState({})
 
     const getTypeBoatById = () => {
         axiosInstance.get(("/typebot/getById/" + params.id)).then((res) => { setFlow(res.data.flow); setFormData(res.data); setFormName(res.data.formName); setTheme(res.data.theme) })
@@ -30,11 +31,12 @@ const TypeBot = () => {
     const getCurrentStateRender = (currentState: string) => {
         switch (currentState) {
             case "flow":
-                return <Flow refreshTypeForm={getTypeBoatById} flow={flow} setFlow={setFlow} />
+                return <Flow refreshTypeForm={getTypeBoatById} flow={flow} setFlow={setFlow}  counter={counter}
+                setCounter={setCounter} />
             case "theme":
                 return <Theme theme={theme} setTheme={setTheme} />
             case "response":
-                return <Response />
+                return <Response flow={flow}/>
         }
     }
 
@@ -49,7 +51,7 @@ const TypeBot = () => {
         const payLoadForUpdate = Object.assign(payLoadForCreate, { id: formData?._id })
 
         params.id == "new" ? axiosInstance.post("/typebot/create", payLoadForCreate)
-            .then((res) => navigate("/typebot/" + res.data._id + "/formId"))
+            .then((res) => {navigate("/typebot/" + res.data._id + "/formId");toast.success("Type Form Created Successfully..")})
             : axiosInstance.put("/typebot/update", payLoadForUpdate)
                 .then(() => { toast.success("Type Form Updated Successfully.."); getTypeBoatById() })
 
@@ -64,6 +66,8 @@ const TypeBot = () => {
                 handleSave={handleSave}
                 formName={formName}
                 setFormName={setFormName}
+                counter={counter}
+                setCounter={setCounter}
             />
             {getCurrentStateRender(currentState)}
         </div>

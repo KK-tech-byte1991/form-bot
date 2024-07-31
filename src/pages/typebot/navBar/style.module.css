@@ -59,11 +59,15 @@
 
 .shareButton {
     color: white;
-    background-color: #37373E;
+    
     padding-top: 2px;
     padding-bottom: 2px;
     height: 80%;
+    background-color: blue;
 
+}
+.shareButton:disabled{
+background-color: #37373E;
 }
 
 .saveButton {

@@ -1,7 +1,18 @@
 
 import styles from "./style.module.css"
 import { buttonInput, dateInput, emailInput, gifBubble, imageBubble, numberInput, phoneInput, ratingInput, textBubble, textInput, videoBubble } from '../../../../assets'
-const SideBar = ({ flow, setFlow }: any) => {
+import { BubbleInterface, ElementInterface } from "../../../interfaces"
+
+interface PropTypes {
+    flow: ElementInterface[],
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    setFlow: Function,
+    counter: unknown,
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    setCounter: Function
+}
+
+const SideBar = ({ flow, setFlow, counter, setCounter }: PropTypes) => {
 
     const bubbles = [
         {
@@ -25,7 +36,7 @@ const SideBar = ({ flow, setFlow }: any) => {
 
     const inputs = [
         {
-            name: "Text",
+            name: "Input Text",
             img: textInput,
             category: "textInput"
         }, {
@@ -54,20 +65,29 @@ const SideBar = ({ flow, setFlow }: any) => {
             category: "buttonInput"
         }]
 
-    const handleAddElement = (type: string, category: string, name: string) => {
-        let newElement = { type: type, category: category, name: name }
+    const handleAddElement = (type: string, category: string, name: string, code: string) => {
+        const newElement = { type: type, category: category, name: name, code: code }
         setFlow([...flow, newElement])
     }
-
+    const getName = (name: string) => {
+        const p = JSON.parse(JSON.stringify(counter))
+        if (p[name]) {
+            p[name] = p[name] + 1
+        } else {
+            p[name] = 1
+        }
+        setCounter(p)
+        return p[name]
+    }
     return (
         <div className={styles.container}>
 
             <span className={styles.heading} style={{ marginTop: "20px" }}>Bubbles</span><span></span>
 
-            {bubbles.map((bubble: any) => <button
-            key={bubble.name}
+            {bubbles?.map((bubble: BubbleInterface) => <button
+                key={bubble.name}
                 className={styles.button}
-                onClick={() => { handleAddElement("bubble", bubble.category, bubble.name) }}
+                onClick={() => { handleAddElement("bubble", bubble.category, bubble.name + " " + getName(bubble.category), bubble.name + getName(bubble.category)) }}
 
             >
 
@@ -76,10 +96,10 @@ const SideBar = ({ flow, setFlow }: any) => {
             </button>)}
 
             <span className={styles.heading}>Buttons </span><span></span>
-            {inputs.map((bubble: any) => <button
+            {inputs?.map((bubble: BubbleInterface) => <button
                 className={styles.button}
                 key={bubble.name}
-                onClick={() => { handleAddElement("input", bubble.category, bubble.name) }}
+                onClick={() => { handleAddElement("input", bubble.category, bubble.name + " " + getName(bubble.category),bubble.name + getName(bubble.category)) }}
             >
                 <img src={bubble.img} alt={bubble.name} />
                 <span className={styles.bubbleText}>{bubble.name}</span>
