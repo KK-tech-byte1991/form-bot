@@ -37,10 +37,10 @@ axiosInstance.interceptors.response.use(
         return response;
     },
     error => {
-        // if (error.response.status === 401) {
+        if (error.response.status === 401) {
 
-        //     window.location.href = '/login';
-        // }
+            window.location.href = '/login';
+        }
         if (error.response) {
             toast.error(error.response.data.msg)
 

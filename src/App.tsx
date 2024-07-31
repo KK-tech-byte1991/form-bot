@@ -14,6 +14,7 @@ import ProtectedRoute from './ProtectRoute';
 import { Toaster } from 'sonner';
 import Settings from './pages/settings';
 import TypeBot from './pages/typebot';
+import PublicForm from './pages/publicForm';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
   {
     path:"/typebot/:id/:folderId",
     element:<ProtectedRoute Component={TypeBot}/>
+  },{
+    path:"/flow/:id",
+    element:<PublicForm/>
   }
 ]);
 function App() {

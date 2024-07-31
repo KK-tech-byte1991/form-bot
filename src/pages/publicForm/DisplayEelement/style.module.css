@@ -1,0 +1,24 @@
+.bubble{
+text-align: left;
+}
+.input{
+text-align: right;
+}
+.inputTextDiv{
+    display: flex;
+    justify-content: flex-end;
+}
+.inputTextDiv input{
+    background-color: white;
+    color:black;
+    border-radius: 5px;
+    width: 200px;
+}
+.sendButton{
+    background-color: #1A5FFF;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

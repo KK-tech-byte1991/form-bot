@@ -7,15 +7,15 @@ const NavBar = () => {
 
     const userDetails = JSON.parse(localStorage.getItem("userDetails") || "")
     const [isVisible, setIsVisible] = useState(false);
-    const menuRef = useRef();
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const toggleMenu = () => {
         setIsVisible(!isVisible);
     };
 
-    const handleClickOutside = (event: { target: any; }) => {
-        //@ts-ignore
-        if (menuRef.current && !menuRef.current?.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+
+        if (menuRef.current && !menuRef.current?.contains(event.target as Node)) {
             setIsVisible(false);
         }
     };
@@ -33,7 +33,7 @@ const NavBar = () => {
                 <button onClick={toggleMenu}
                     className={styles.popup}>{userDetails.username + "'s " + "workspace"} </button>
                 {isVisible && (
-                    //@ts-ignore
+
                     <div className={styles.popupMenu} ref={menuRef}>
                         <ul>
                             <li ><Link to="/settings">Settings</Link></li>

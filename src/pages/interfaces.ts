@@ -3,7 +3,8 @@ interface TypeBotInterface {
     formName: string,
     userId?: string,
     folderId?: string,
-    flow: Element[]
+    flow: ElementInterface[],
+    theme?: string
 }
 
 interface ElementInterface {
@@ -11,7 +12,7 @@ interface ElementInterface {
     category: string,
     name: string,
     link: string,
-    _id?:string
+    _id?: string
 
 
 }
